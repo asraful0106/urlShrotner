@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/css/global.css">
     <!-- Index CSS -->
     <link rel="stylesheet" href="/css/index.css">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/4610789fe2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -22,21 +24,38 @@
                 <h1>URL Shortener</h1>
                 <div class="mainContainer">
                     <h1>Paste the URL to be shortened</h1>
-                    <form class="search-form">
+                    <form id="formContainer" class="search-form">
                         <label for="default-search" class="search-label">Search</label>
                         <div class="search-container">
                             <input type="search" id="default-search" class="search-input"
                                 placeholder="Enter the link here" required />
-                            <button type="submit" class="search-button">Shorten URL</button>
+                            <button id="openModalBtn" type="submit" class="search-button">Shorten URL</button>
                         </div>
                     </form>
                     <p>ShortURL is a free tool to shorten URLs and generate short links <br>
-                    URL shortener allows to create a shortened link making it easy to share</p>
+                        URL shortener allows to create a shortened link making it easy to share</p>
                 </div>
 
+                <!-- Modal container -->
+                <div class="modal-container" id="modal-container" style="--m-background: hsla(0, 0%, 0%, .4);">
+                    <div class="modal">
+                        <h1 class="modal__title">URL Shortener</h1>
+                        <div class="modalTextContainer">
+                            <p>http://www.asraful-alom.com/dkfjajhdhdjfhjkhsddfdsafkhkjsdnfk</p>
+                            <i class="fa-solid fa-clone copy-icon" onclick="copyText()"></i>
+                        </div>
+                        <p>* Short URLs that do not have at least one click per month are disabled</p>
+                        <button class="modal__btn" id="closeModalBtn">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </main>
+        <!-- Footer -->
         <%- include('../shared/footer') %>
+            <!-- For JavaScript -->
+            <Script src="/js/index.js"></Script>
 </body>
 
 </html>
