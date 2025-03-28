@@ -26,3 +26,5 @@ const setMetaData = (titel, description, keywords, author, type, image_url, page
         twiter_summary: twiter_summary ?? defaultMeta.twitter_summary
     }
 };
+
+export default setMetaData;
