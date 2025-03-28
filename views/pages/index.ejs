@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener</title>
+    <!-- For favicon -->
+    <link rel="shortcut icon" href="/images/url_logo.png" type="image/png">
+    <!-- Navigation CSS -->
+    <link rel="stylesheet" href="/css/navigation.css">
+    <!-- Global Css -->
+    <link rel="stylesheet" href="/css/global.css">
+    <!-- Index CSS -->
+    <link rel="stylesheet" href="/css/index.css">
 </head>
+
 <body>
-    <h1>Home</h1>
+    <%- include('../shared/navigation', {path: "/" }) -%>
+        <main>
+            <div>
+                <h1>URL Shortener</h1>
+                <div class="mainContainer">
+                    <h1>Paste the URL to be shortened</h1>
+                    <form class="search-form">
+                        <label for="default-search" class="search-label">Search</label>
+                        <div class="search-container">
+                            <input type="search" id="default-search" class="search-input"
+                                placeholder="Enter the link here" required />
+                            <button type="submit" class="search-button">Shorten URL</button>
+                        </div>
+                    </form>
+                    <p>ShortURL is a free tool to shorten URLs and generate short links <br>
+                    URL shortener allows to create a shortened link making it easy to share</p>
+                </div>
+
+            </div>
+        </main>
+        <%- include('../shared/footer') %>
 </body>
+
 </html>

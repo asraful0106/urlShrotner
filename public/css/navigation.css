@@ -1,0 +1,98 @@
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 0 1rem;
+    background-color: white;
+    z-index: 50;
+}
+
+.navigationContainer {
+    position: relative;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigationButton {
+    text-decoration: none;
+    color: rgb(154, 154, 154);
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+}
+
+.isActive {
+    color: black;
+}
+
+/* Navigation Container for phone */
+.navLinksContainerPhone {
+    display: none;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.navigationContainerPhone {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    right: 1rem;
+    bottom: -21rem;
+    background-color: #f3f4f6;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    animation: slideIn 1s ease;
+}
+
+/* Animation keyframe */
+@keyframes slideIn {
+    from{
+        right: -10rem;
+    }
+    to{
+        right: 1rem;
+    }
+}
+@keyframes slideOut {
+    to{
+        right: -10;
+    }
+}
+
+/* Changed it 768 for mobile and tablet from 600px */
+@media only screen and (max-width : 768px) {
+    nav {
+        padding: 1rem 1rem;
+    }
+
+    /* Hide the navigation menu on small screens */
+    .navLinksContainerPC {
+        display: none;
+    }
+
+    /* Reduce the size of the logo */
+    .logoContainer>div {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* Reduce h1 font size */
+    .logoContainer>h1 {
+        font-size: .98rem;
+    }
+
+    /* Navigation Container for phone */
+    .navLinksContainerPhone {
+        display: block;
+        font-size: larger;
+        margin-right: 1rem;
+        border: none;
+    }
+}

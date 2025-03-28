@@ -1,0 +1,127 @@
+body {
+    background-color: #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    flex: 1;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main>div>h1{
+    font-size: 38px;
+    color: #0186da;
+    text-align: center;
+}
+.mainContainer{
+    background-color: white;
+    padding: 2rem 10rem;
+    border-radius: 10px;
+}
+/* General Styles */
+.search-form {
+    max-width: 28rem;
+    /* max-w-md */
+    margin-left: auto;
+    margin-right: auto;
+    /* mx-auto */
+}
+
+.search-label {
+    margin-bottom: 0.5rem;
+    /* mb-2 */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 500;
+    /* font-medium */
+    color: #1f2937;
+    /* text-gray-900 */
+    display: none;
+    /* sr-only */
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 0.75rem;
+    /* ps-3 */
+    pointer-events: none;
+}
+
+.search-icon-svg {
+    width: 1rem;
+    /* w-4 */
+    height: 1rem;
+    /* h-4 */
+    color: #6b7280;
+    /* text-gray-500 */
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2.5rem;
+    /* p-4 ps-10 */
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #111827;
+    /* text-gray-900 */
+    border: 1px solid #d1d5db;
+    /* border-gray-300 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    background-color: #f9fafb;
+    /* bg-gray-50 */
+    transition: border-color 0.3s ease, outline 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #3b82f6;
+    /* focus:border-blue-500 */
+    outline: 2px solid #3b82f6;
+    /* focus:ring-blue-500 */
+}
+
+.search-button {
+    position: absolute;
+    bottom: 0.625rem;
+    /* bottom-2.5 */
+    right: 0.625rem;
+    /* end-2.5 */
+    background-color: #1e40af;
+    /* bg-blue-700 */
+    color: white;
+    padding: 0.5rem 1rem;
+    /* px-4 py-2 */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 500;
+    /* font-medium */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+.search-button:hover {
+    background-color: #1e3a8a;
+    /* hover:bg-blue-800 */
+}
+
+.search-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+    /* focus:ring-blue-*/
+}

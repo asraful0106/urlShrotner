@@ -1,0 +1,53 @@
+<nav>
+    <div class="navigationContainer">
+        <div class="logoContainer">
+            <h1>URL Shortener</h1>
+        </div>
+        <!-- Navigation for desktop -->
+        <div class="navLinksContainerPC">
+            <a href="/" class="navigationButton <% if (path == '/') { %> isActive<% } %>">Home</a>
+            <a href="/about" class="navigationButton <% if (path == '/about') { %> isActive<% } %>">History</a>
+        </div>
+        <!-- Naviagation for Phone -->
+        <div class="navLinksContainerPhone" onclick="togolNavigation()">
+            <i id="icon" class="fa-solid fa-bars-staggered"></i>
+        </div>
+        <!-- Navigation list -->
+        <div class="navigationContainerPhone">
+            <a href="/" class="navigationButton <% if (path == '/') { %> isActive<% } %>">Home</a>
+            <a href="/about" class="navigationButton <% if (path == '/about') { %> isActive<% } %>">History</a>
+        </div>
+    </div>
+    <script>
+        // For Navigation drawer
+        let isPhoneNavContainerOpen = false;
+        let navigationContainerPhone = document.getElementsByClassName("navigationContainerPhone")[0];
+        const icon = document.getElementById("icon");
+
+
+        const togolNavigation = () => {
+            isPhoneNavContainerOpen = !isPhoneNavContainerOpen;
+            // console.log(isPhoneNavContainerOpen);
+            if (isPhoneNavContainerOpen) {
+                icon.classList.remove("fa-bars-staggered");
+                icon.classList.add("fa-xmark");
+                navigationContainerPhone.style.display = "flex";
+            } else {
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars-staggered");
+                navigationContainerPhone.style.display = "none";
+            }
+        }
+
+        // For closing the Navigation drower when click on out side
+        const closNavigationDrower = () => {
+            const screenWidth = window.screen.width;
+            if (screenWidth <= 600 && isPhoneNavContainerOpen) {
+                isPhoneNavContainerOpen = false;
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars-staggered");
+                navigationContainerPhone.style.display = "none";
+            }
+        }
+    </script>
+</nav>
