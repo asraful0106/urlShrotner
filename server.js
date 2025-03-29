@@ -1,5 +1,11 @@
 import express from 'express';
+import cookieParser from "cookie-parser";
+import dotenv from 'dotenv';
 import viewRouter from './routes/view.routes.js';
+import uniqeUser from './middlewares/uniqeUser.js';
+import connectDB from './database/db.js';
+
+dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -10,13 +16,19 @@ app.use(express.json());
 // For parsing URL-encoded bodies
 app.use(express.urlencoded( { extended: true } ));
 
-// Seting up ejs view engine
-app.set('view engine', 'ejs');
-
 // Making public folder accessible
 app.use(express.static('public'));
 
+// Middleware for cookies
+app.use(cookieParser());
+
+// Seting up ejs view engine
+app.set('view engine', 'ejs');
+
+// Connect Databse
+connectDB();
+
 // Handeling the view routes
-app.use('/', viewRouter);
+app.use('/', uniqeUser, viewRouter); // Apply the middleware only to viewRouter
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

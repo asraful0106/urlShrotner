@@ -4,11 +4,11 @@ import setMetaData from '../helpers/meataData.js';
 
 const viewRouter = Router();
 
-viewRouter.get('/', (req, res) => {
+viewRouter.get('/', async (req, res) => {
     homeView(req, res);
 });
 
-viewRouter.get('*', (req, res) =>{
+viewRouter.get('*', async (req, res) =>{
     res.status(404).render('pages/404', setMetaData(
         "Page Not Found | URL Shrotner",
         null,

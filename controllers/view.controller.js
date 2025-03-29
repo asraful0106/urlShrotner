@@ -1,4 +1,4 @@
-const homeView = (req, res) => {
+const homeView = async (req, res) => {
     res.render('pages/index');
 }
 
