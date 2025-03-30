@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History | URL Shortener</title>
+    <!--  Essential META Tags -->
+    <meta property="og:title" content="<%= titel %>">
+    <meta property="og:type" content="<%= type %>">
+    <meta name="keywords" content=<%=keywords %>>
+    <meta name="author" content="<%= author %>">
+    <meta property="og:image" content="<%= image_url %>">
+    <meta property="og:url" content="<%= page_url %>">
+    <meta name="twitter:card" content="<%= twiter_summary %>">
+    <!-- For favicon -->
+    <link rel="shortcut icon" href="/images/url_logo.png" type="image/png">
+    <!-- Navigation CSS -->
+    <link rel="stylesheet" href="/css/navigation.css">
+    <!-- Global Css -->
+    <link rel="stylesheet" href="/css/global.css">
+    <!-- Index CSS -->
+    <link rel="stylesheet" href="/css/index.css">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/4610789fe2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <%- include('../shared/navigation', {path: "/history" }) -%>
+        <main>
+            <div>
+                <h1>URL Shortener</h1>
+            </div>
+        </main>
+        <!-- Footer -->
+        <%- include('../shared/footer') %>
+            <!-- For JavaScript -->
+            <Script src="/js/index.js"></Script>
+</body>
+
+</html>
