@@ -11,17 +11,17 @@ viewRouter.get('/history', async (req, res) => {
     historyView(req, res);
 });
 
-viewRouter.get('*', async (req, res) => {
-    res.status(404).render('pages/404', setMetaData(
-        "Page Not Found | URL Shrotner",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-    ));
-});
+// viewRouter.get('*', async (req, res) => {
+//     res.status(404).render('pages/404', setMetaData(
+//         "Page Not Found | URL Shrotner",
+//         null,
+//         null,
+//         null,
+//         null,
+//         null,
+//         null,
+//         null
+//     ));
+// });
 
 export default viewRouter;

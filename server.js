@@ -36,6 +36,10 @@ app.set('view engine', 'ejs');
 connectDB();
 
 
+// Handeling the view routes
+app.use('/', uniqeUser, viewRouter); // Apply the middleware only to viewRouter
+
+
 // For redirecting 
 app.get('/:uuid', async (req, res) => {
     const userParam = req.params.uuid;
@@ -49,7 +53,16 @@ app.get('/:uuid', async (req, res) => {
     try {
         const url = await shortUrlModel.findOne({ shortenedUrl: userParam });
         // console.log("URL: ", url);
-        if (!url) return res.render('pages/not_found');
+        if (!url) return res.render('pages/404', setMetaData(
+            "Page Not Found | URL Shrotner",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ));
 
         url.recordClick(uaResult.os.name, ipAddress);
         res.redirect(url.originalUrl);
@@ -58,8 +71,6 @@ app.get('/:uuid', async (req, res) => {
     }
 });
 
-// Handeling the view routes
-app.use('/', uniqeUser, viewRouter); // Apply the middleware only to viewRouter
 
 // Creating Short Url
 app.use('/create', creatUrlRouter);
