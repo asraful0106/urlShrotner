@@ -217,12 +217,26 @@ main>div>h1 {
     /* Green color for success */
 }
 
+/* Loding Spinner */
+#modaLoading {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal Error */
+#modalError>h3{
+    color: red;
+    text-align: center;
+}
+
 /* ************* */
 
-.modal>p{
+.modal>p {
     font-size: 12px;
     font-weight: 500;
-    color: rgb(148, 148, 148);
+    color: rgb(124, 124, 124);
     text-align: center;
 }
 

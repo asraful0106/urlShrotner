@@ -2,6 +2,7 @@ import express from 'express';
 import cookieParser from "cookie-parser";
 import dotenv from 'dotenv';
 import cors from 'cors';
+import { UAParser } from 'ua-parser-js';
 import viewRouter from './routes/view.routes.js';
 import uniqeUser from './middlewares/uniqeUser.js';
 import connectDB from './database/db.js';
@@ -38,14 +39,19 @@ connectDB();
 // For redirecting 
 app.get('/:uuid', async (req, res) => {
     const userParam = req.params.uuid;
-    const { userAgent, ipAddress } = req.body;
+    const parser = new UAParser();
+    const userAgent = req.headers['user-agent'];
+    const uaResult = parser.setUA(userAgent).getResult();
+    // console.log(uaResult.os.name); // e.g., 'Windows', 'Mac OS', 'Android'
+    // console.log(uaResult.device.type);
+    const ipAddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress || req.ip;
 
     try {
         const url = await shortUrlModel.findOne({ shortenedUrl: userParam });
         // console.log("URL: ", url);
         if (!url) return res.render('pages/not_found');
 
-        url.recordClick(userAgent, ipAddress);
+        url.recordClick(uaResult.os.name, ipAddress);
         res.redirect(url.originalUrl);
     } catch (err) {
         res.status(500).json({ message: 'Server error', error: err });

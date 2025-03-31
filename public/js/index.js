@@ -5,6 +5,11 @@ const modalContainer = document.getElementById('modal-container');
 const form = document.getElementById('formContainer');
 const inputField = document.getElementById('default-search');
 
+const modalInfo = document.getElementById('modalInfo');
+const modaLoading = document.getElementById('modaLoading');
+const modalError = document.getElementById('modalError');
+const formResult = document.getElementById('formResult');
+
 var isLoding = false;
 var response = '';
 
@@ -19,8 +24,29 @@ closeModalBtn.addEventListener('click', () => {
     modalContainer.style.display = 'none';
 });
 
+// Modal loading and error showing logic
+function showLoading() {
+    modaLoading.style.display = 'flex';
+    modalInfo.style.display = 'none';
+    modalError.style.display = 'none';
+};
+function showInfo(url){
+    modaLoading.style.display = 'none';
+    formResult.innerText = url;
+    modalInfo.style.display = 'block';
+    modalError.style.display = 'none';
+};
+function showError(err){
+    modaLoading.style.display = 'none';
+    modalInfo.style.display = 'none';
+    modalError.innerHTML = `<h3>${err}</h3>`;
+    modalError.style.display = 'block';
+}
+
 // Creating a function to send the data to the server
 async function sendData(fromData) {
+    showLoading();
+    const site_url = 'http://localhost:3000';
     const url = 'http://localhost:3000/create';
     try {
         const res = await fetch(url, {
@@ -37,9 +63,12 @@ async function sendData(fromData) {
         }
         // Storing the response on the response variable
         response = await res.json();
-        console.log('Response: ', response);
+        // Showing the response on the modal
+        showInfo(`${site_url}/${response.shortenedUrl}`);
+        // console.log('Response: ', response);
     } catch (err) {
-        console.log("Error: ", err);
+        // console.log("Error: ", err);
+        showError(err);
     }
 }
 

@@ -47,15 +47,23 @@
                 <!-- Modal container -->
                 <div class="modal-container" id="modal-container" style="--m-background: hsla(0, 0%, 0%, .4);">
                     <div class="modal">
-                        <h1 class="modal__title">URL Shortener</h1>
-                        <div class="modalTextContainer">
-                            <p>http://www.asraful-alom.com/dkfjajhdhdjfhjkhsddfdsafkhkjsdnfk</p>
-                            <i class="fa-solid fa-clone copy-icon" onclick="copyText()"></i>
+                        <div id="modalInfo">
+                            <h1 class="modal__title">URL Shortener</h1>
+                            <div class="modalTextContainer">
+                                <p id="formResult"></p>
+                                <i class="fa-solid fa-clone copy-icon" onclick="copyText()"></i>
+                            </div>
+                            <p>* Short URLs that do not have at least one click per month are disabled</p>
+                           
                         </div>
-                        <p>* Short URLs that do not have at least one click per month are disabled</p>
                         <button class="modal__btn" id="closeModalBtn">
                             <i class="fa-solid fa-circle-xmark"></i>
                         </button>
+                        <div id="modaLoading">
+                            <img src="/images/spinner.gif" alt="">
+                        </div>
+                        <div id="modalError">
+                        </div>
                     </div>
                 </div>
             </div>
