@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+main{
+    flex: 1;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "link statistics statistics";
+    height: 100vh;
+    margin: 4rem 0;
+}
+
+.statistics {
+    grid-area: statistics;
+    background-color: rgba(184, 195, 224, 0.247);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    /* padding: 4rem 0; */
+}
+
+.link {
+    grid-area: link;
+    background-color: #f4f4f9;
+    /* padding: 4rem 0; */
+}
+
+/* -------- copy box ------*/
+.modalTextContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 10px;
+    background-color: #f4f4f9;
+    padding: 10px 15px;
+    border: 1px solid rgba(112, 112, 112, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    color: black;
+}
+
+.modalTextContainer:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modalTextContainer>p {
+    font-size: 12px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.copy-icon {
+    font-size: 12px;
+    cursor: pointer;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.copy-icon:hover {
+    color: #0056b3;
+}
+
+.copy-icon:active {
+    color: #004085;
+}
+
+/* Feedback after copying */
+.copied .copy-icon {
+    color: #28a745;
+}
+
+/* Link card */
+.link-card{
+    /* border: 1px solid rgba(161, 161, 161, 0.781); */
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(101, 255, 87, 0.61);
+}
+.short-url, .original-url{
+    font-size: 12px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}

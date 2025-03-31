@@ -14,12 +14,12 @@ var isLoding = false;
 var response = '';
 
 // Event listener for opening the modal
-openModalBtn.addEventListener('click', () => {
+openModalBtn?.addEventListener('click', () => {
     modalContainer.style.display = 'flex';
 });
 
 // Event listener for closing the modal
-closeModalBtn.addEventListener('click', () => {
+closeModalBtn?.addEventListener('click', () => {
     inputField.value = '';
     modalContainer.style.display = 'none';
 });
@@ -82,7 +82,7 @@ const submitFrom = (e) => {
 }
 
 // Add an event listener to the form
-form.addEventListener('submit', submitFrom);
+form?.addEventListener('submit', submitFrom);
 
 
 function copyText() {

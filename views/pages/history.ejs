@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="/css/navigation.css">
     <!-- Global Css -->
     <link rel="stylesheet" href="/css/global.css">
-    <!-- Index CSS -->
-    <link rel="stylesheet" href="/css/index.css">
+    <!-- History CSS -->
+    <link rel="stylesheet" href="/css/history.css">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/4610789fe2.js" crossorigin="anonymous"></script>
 </head>
@@ -29,13 +29,50 @@
     <%- include('../shared/navigation', {path: "/history" }) -%>
         <main>
             <div>
-                <h1>URL Shortener</h1>
+                <div class="container">
+                    <!-- For Showing Statistics -->
+                    <div class="statistics">
+                        <div>
+                            <!-- For don't have any content -->
+                             <p id="noLinkSelected">Please slect a link to show it's statistics</p>
+                             <!-- For showing statistics -->
+                              <div id="linkSelected">
+                                
+                              </div>
+                        </div>
+                    </div>
+                    <!-- For Showing Links -->
+                    <div class="link">
+                        <% history.forEach(link=> { %>
+                            <div class="link-card">
+                                <!-- Short Url -->
+                                <div class="short-url">
+                                    <p>Short URL: </p>
+                                    <div class="modalTextContainer">
+                                        <p>
+                                            <%= `http://localhost:3000/${link.shortenedUrl}` %>
+                                        </p>
+                                        <i class="fa-solid fa-clone copy-icon" onclick="copyText()"></i>
+                                    </div>
+                                </div>
+                                <!-- Original Url -->
+                                <div class="original-url">
+                                    <p>Original URL: </p>
+                                    <h4>
+                                        <%= link.originalUrl %>
+                                    </h4>
+                                </div>
+                            </div>
+                            <% }) %>
+                    </div>
+
+                </div>
             </div>
         </main>
         <!-- Footer -->
         <%- include('../shared/footer') %>
             <!-- For JavaScript -->
-            <Script src="/js/index.js"></Script>
+            <Script src="/js/history.js"></Script>
 </body>
 
 </html>

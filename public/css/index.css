@@ -211,10 +211,9 @@ main>div>h1 {
     color: #004085;
 }
 
-/* Optional: Feedback after copying */
+/* Feedback after copying */
 .copied .copy-icon {
     color: #28a745;
-    /* Green color for success */
 }
 
 /* Loding Spinner */
