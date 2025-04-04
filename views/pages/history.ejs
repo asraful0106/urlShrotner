@@ -33,46 +33,83 @@
                     <!-- For Showing Statistics -->
                     <div class="statistics">
                         <div>
-                            <!-- For don't have any content -->
-                             <p id="noLinkSelected">Please slect a link to show it's statistics</p>
-                             <!-- For showing statistics -->
-                              <div id="linkSelected">
-                                
-                              </div>
+                            <p id="noLinkSelected">Please select a link to show its statistics</p>
+                            <!-- For Showing Loding -->
+                             <p id="isLoding">Loading statistics...</p>
+                            <div id="linkSelected" class="stats-container">
+                                <div class="stats-header">
+                                    <h3>Statistics</h3>
+                                    <p class="total-clicks">Total Clicks: <span id="clickCount">0</span></p>
+                                </div>
+                                <div class="stats-details">
+                                    <h4>Click Details:</h4>
+                                    <table class="click-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Timestamp</th>
+                                                <th>User Agent</th>
+                                                <th>IP Address</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="clickDetails">
+                                        </tbody>
+                                    </table>
+                                    <div class="meta-info">
+                                        <p>Created: <span id="createdAt"></span></p>
+                                        <p>Last Clicked: <span id="lastClicked"></span></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- For Showing Links -->
                     <div class="link">
                         <% history.forEach(link=> { %>
-                            <div class="link-card">
-                                <!-- Short Url -->
+                            <div class="link-card" style="cursor: pointer;" data-shortened="<%= link.shortenedUrl %>">
                                 <div class="short-url">
                                     <p>Short URL: </p>
                                     <div class="modalTextContainer">
-                                        <p>
-                                            <%= `http://localhost:3000/${link.shortenedUrl}` %>
-                                        </p>
-                                        <i class="fa-solid fa-clone copy-icon" onclick="copyText()"></i>
+                                        <p><%= `${siteUrl}/${link.shortenedUrl}` %></p>
+                                        <i class="fa-solid fa-clone copy-icon" onclick="copyText.call(this)"></i>
                                     </div>
                                 </div>
-                                <!-- Original Url -->
                                 <div class="original-url">
                                     <p>Original URL: </p>
-                                    <h4>
-                                        <%= link.originalUrl %>
-                                    </h4>
+                                    <h4><%= link.originalUrl %></h4>
                                 </div>
                             </div>
-                            <% }) %>
+                        <% }) %>
                     </div>
-
                 </div>
             </div>
         </main>
-        <!-- Footer -->
         <%- include('../shared/footer') %>
-            <!-- For JavaScript -->
-            <Script src="/js/history.js"></Script>
+        <script src="/js/history.js"></script>
+        <style>
+            .stats-container {
+                display: none;
+                margin-top: 20px;
+                padding: 15px;
+                background: #f8f9fa;
+                border-radius: 5px;
+            }
+            .click-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .click-table th, .click-table td {
+                padding: 8px;
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+            .click-table th {
+                background-color: #f2f2f2;
+            }
+            .meta-info {
+                margin-top: 15px;
+                font-size: 0.9em;
+                color: #666;
+            }
+        </style>
 </body>
-
 </html>

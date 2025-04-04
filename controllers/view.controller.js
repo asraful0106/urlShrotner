@@ -16,26 +16,29 @@ const homeView = async (req, res) => {
 }
 
 const historyView = async (req, res) => {
+    const siteUrl = process.env.SITE_URL;
     let history = [];
     try {
         const token = req.cookies?.urlShortnerToken;
         const decode = jwt.verify(token, process.env.SECRET_KEY);
         history = await shortUrlModel.find({ uniqeId: decode.uniqeId })
             .select('originalUrl shortenedUrl');
-        // console.log("History: ", history);
+        console.log("History: ", history);
     } catch (err) {
         // console.log(err);
     }
-    res.render('pages/history', {...setMetaData(
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-    ), history});
+    res.render('pages/history', {
+        ...setMetaData(
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ), history, siteUrl
+    });
 }
 
 export { homeView, historyView };

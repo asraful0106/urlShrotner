@@ -8,6 +8,7 @@ import uniqeUser from './middlewares/uniqeUser.js';
 import connectDB from './database/db.js';
 import creatUrlRouter from './routes/creatUrl.route.js';
 import shortUrlModel from './models/shortUrl.model.js';
+import shortUrlRouter from './routes/shrot_url.route.js';
 
 dotenv.config();
 
@@ -74,6 +75,9 @@ app.get('/:uuid', async (req, res) => {
 
 // Creating Short Url
 app.use('/create', creatUrlRouter);
+
+// Short Url Route
+app.use('/api/statistics', shortUrlRouter);
 
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
