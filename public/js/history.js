@@ -30,16 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!response.ok) throw new Error('Failed to fetch statistics');
 
                 const data = await response.json();
-                console.log(data);
+                // console.log(data);
 
 
 
                 // Clear previous click details
                 clickDetails.innerHTML = '';
 
+                clickCount.innerText = data[0].clicks.length ? data[0].clicks.length : 0;
+
                 // Add new click details if available
                 if (data[0].clicks && data[0].clicks.length) {
-                    clickCount.innerText = data[0].clicks.length;
                     data[0].clicks.forEach(click => {
                         const row = document.createElement('tr');
                         row.innerHTML = `

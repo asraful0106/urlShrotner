@@ -53,8 +53,9 @@
                                 <p id="formResult"></p>
                                 <i class="fa-solid fa-clone copy-icon" onclick="copyText()"></i>
                             </div>
-                            <p id="extraInfo">* Short URLs that do not have at least one click per month are disabled</p>
-                           
+                            <p id="extraInfo">* Short URLs that do not have at least one click per month are disabled
+                            </p>
+
                         </div>
                         <button class="modal__btn" id="closeModalBtn">
                             <i class="fa-solid fa-circle-xmark"></i>
@@ -71,6 +72,9 @@
         <!-- Footer -->
         <%- include('../shared/footer') %>
             <!-- For JavaScript -->
+            <script>
+                const siteUrl = "<%= siteUrl %>";
+            </script>
             <Script src="/js/index.js"></Script>
 </body>
 

@@ -46,7 +46,7 @@ function showError(err){
 // Creating a function to send the data to the server
 async function sendData(fromData) {
     showLoading();
-    const site_url = 'http://localhost:3000';
+    // const site_url = 'http://localhost:3000';
     const url = 'http://localhost:3000/create';
     try {
         const res = await fetch(url, {
@@ -64,7 +64,7 @@ async function sendData(fromData) {
         // Storing the response on the response variable
         response = await res.json();
         // Showing the response on the modal
-        showInfo(`${site_url}/${response.shortenedUrl}`);
+        showInfo(`${siteUrl}/${response.shortenedUrl}`);
         // console.log('Response: ', response);
     } catch (err) {
         // console.log("Error: ", err);

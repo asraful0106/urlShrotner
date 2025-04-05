@@ -3,16 +3,19 @@ import jwt from 'jsonwebtoken';
 import shortUrlModel from "../models/shortUrl.model.js";
 
 const homeView = async (req, res) => {
-    res.render('pages/index', setMetaData(
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-    ));
+    const siteUrl = process.env.SITE_URL;
+    res.render('pages/index', {
+        ...setMetaData(
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ), siteUrl
+    });
 }
 
 const historyView = async (req, res) => {
